@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:skypeclone/models/message.dart';
@@ -10,8 +9,6 @@ import 'package:skypeclone/resources/firebase_methods.dart';
 
 class FirebaseRepository {
   FirebaseMethods _firebaseMethods = FirebaseMethods();
-
-
 
   Future<FirebaseUser> getCurrentUser() => _firebaseMethods.getCurentuser();
 
@@ -36,10 +33,12 @@ class FirebaseRepository {
       @required File image,
       @required String receiverId,
       @required String senderId}) {
-    _firebaseMethods.uploadImage(imageUploadProvider,image, receiverId, senderId);
+    _firebaseMethods.uploadImage(
+        imageUploadProvider, image, receiverId, senderId);
   }
 
-  Future<User> getUserDetails()=> _firebaseMethods.getUserDetails();
+  Future<User> getUserDetails() => _firebaseMethods.getUserDetails();
 
-
+  Future<User> getUserDetailsById(String id) =>
+      _firebaseMethods.getUserDetailsById(id);
 }
