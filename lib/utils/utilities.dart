@@ -48,10 +48,10 @@ class Utils {
 
   static UserState numToState(int number) {
     switch (number) {
-      case 0:
+      case 1:
         return UserState.Offline;
 
-      case 1:
+      case 0:
         return UserState.Online;
 
       default:
@@ -59,3 +59,5 @@ class Utils {
     }
   }
 }
+
+

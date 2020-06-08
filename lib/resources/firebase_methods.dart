@@ -17,12 +17,15 @@ class FirebaseMethods {
 //  initialize objects
   final FirebaseAuth _auth = FirebaseAuth.instance;
   GoogleSignIn _googleSignIn = GoogleSignIn();
+
   static final Firestore firestore = Firestore.instance;
 
   static final CollectionReference _userCollection =
       firestore.collection(USERS_COLLECTION);
   static final CollectionReference _messageCollection =
       firestore.collection(MESSAGES_COLLECTION);
+  static final CollectionReference _callLogCollection =
+      firestore.collection(CALL_LOGS_COLLECTION);
 
   User user = User();
   StorageReference _storageReference;
@@ -234,4 +237,9 @@ class FirebaseMethods {
       return false;
     }
   }
+
+  Stream<QuerySnapshot> fetchCallLogs({String userId}) => _callLogCollection
+      .document(userId)
+      .collection(CALL_LOGS_COLLECTION)
+      .snapshots();
 }

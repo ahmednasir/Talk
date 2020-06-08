@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:skypeclone/enum_/user_state.dart';
 import 'package:skypeclone/provider/user__provider.dart';
 import 'package:skypeclone/resources/firebase_methods.dart';
+import 'package:skypeclone/screens/pageviews/call_log_screen.dart';
 import 'package:skypeclone/screens/pageviews/chat_list_screen.dart';
 import 'package:skypeclone/utils/universal_variables.dart';
 
@@ -100,12 +101,15 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             Container(
               child: ChatListScreen(),
             ),
-            Center(
-              child: Text(
-                "Call Logs",
-                style: TextStyle(color: Colors.white),
-              ),
+            Container(
+              child: CallLogScreen(),
             ),
+//            Center(
+//              child: Text(
+//                "Call Logs",
+//                style: TextStyle(color: Colors.red),
+//              ),
+//            ),
             Center(
                 child: Text(
               "Contact Screen",
